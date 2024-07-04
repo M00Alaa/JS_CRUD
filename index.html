@@ -7,16 +7,107 @@
     <title>JS CRUD</title>
 
     <!-- import bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- import fontAwesome -->
     <link rel="stylesheet" href="css/all.min.css">
-    <!-- import fontawesome -->
-    <link rel="stylesheet" href="css/fontawesome.min.css">
     <!-- import css file -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
+    <div class="container py-4">
+        <div class="text-center mb-3">
+            <h1>JS CRUD</h1>
+            <p>Product Management System</p>
+        </div>
 
+        <form>
+            <input type="text" id="title" placeholder="Product Title" class="form-control mb-3">
+
+            <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 align-items-center price mb-3">
+                <div class="col">
+                    <input type="number" id="price" placeholder="Product Price" class="form-control">
+                </div>
+
+                <div class="col">
+                    <input type="number" id="taxes" placeholder="Product Tax" class="form-control">
+                </div>
+
+                <div class="col">
+                    <input type="number" id="ads" placeholder="Product Ads" class="form-control">
+                </div>
+
+                <div class="col">
+                    <input type="number" id="discount" placeholder="Product Discount" class="form-control">
+                </div>
+
+                <div class="col">
+                    <span class="form-control border-danger">Total : <span id="total">45454</span></span>
+                </div>
+            </div>
+
+            <input type="text" id="count" placeholder="Product Count" class="form-control mb-3">
+
+            <input type="text" id="category" placeholder="Product Category" class="form-control mb-3">
+
+            <button id="submit" class="btn btn-danger w-100">Create</button>
+        </form>
+
+        <hr class="my-4 text-white">
+
+        <div class="outputs">
+            <div class="row row-cols-1 row-cols-md-2">
+                <div class="col">
+                    <input type="text" id="search" class="form-control" placeholder="Type to search ...">
+                </div>
+
+                <div class="col">
+                    <div class="d-flex align-items-center">
+                        <div class="col-6 pe-2">
+                            <button id="titleSearch" class="btn btn-danger w-100">Search by title</button>
+                        </div>
+
+                        <div class="col-6 ps-2">
+                            <button id="categorySearch" class="btn btn-danger w-100">Search by category</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table table-responsive table-bordered my-3">
+
+                <thead class="table-danger">
+                    <tr>
+                        <th class="text-center">#</th>
+                        <th class="text-center">Title</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Tax</th>
+                        <th class="text-center">Ads</th>
+                        <th class="text-center">Discount</th>
+                        <th class="text-center">Category</th>
+                        <th class="text-center">Update</th>
+                        <th class="text-center">Delete</th>
+                    </tr>
+                </thead>
+
+                <tbody class="table-light" id="tbody">
+                    <tr>
+                        <td class="text-center">1</td>
+                        <td class="text-center">Product 1</td>
+                        <td class="text-center">100</td>
+                        <td class="text-center">10</td>
+                        <td class="text-center">5</td>
+                        <td class="text-center">1</td>
+                        <td class="text-center">Electronics</td>
+                        <td class="text-center"><button class="btn btn-success" style="width: 90px;">Update</button>
+                        </td>
+                        <td class="text-center"><button class="btn btn-danger" style="width: 90px;">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 
 

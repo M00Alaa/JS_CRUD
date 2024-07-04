@@ -21,8 +21,56 @@ function getTotal() {
 }
 
 // create product
-// save data to local storage
+let products;
+
+if (localStorage.getItem('products') != null) {
+    products = JSON.parse(localStorage.getItem('products'));
+}
+else {
+    products = [];
+}
+
+submit.onclick = function () {
+    let newProduct = {
+        title: title.value,
+        price: price.value,
+        taxes: taxes.value,
+        ads: ads.value,
+        discount: discount.value,
+        total: total.innerHTML,
+        count: count.value,
+        category: category.value
+    }
+
+    if (title.value != '' && price.value != '') {
+        if (newProduct.count > 1) {
+            for (let i = 0; i < newProduct.count; i++) {
+                products.push(newProduct);
+                // save data to local storage
+                localStorage.setItem('products', JSON.stringify(products));
+            }
+        } else {
+            products.push(newProduct);
+            // save data to local storage
+            localStorage.setItem('products', JSON.stringify(products));
+        }
+    }
+    clearData();
+}
+
 // clear form data after submit
+function clearData() {
+    title.value = '';
+    price.value = '';
+    taxes.value = '';
+    ads.value = '';
+    discount.value = '';
+    total.innerHTML = '';
+    count.value = '';
+    category.value = '';
+    console.log(dataProduct);
+}
+
 // read data
 // count
 // delete

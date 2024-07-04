@@ -27,23 +27,25 @@
 
             <div class="row row-cols-1 row-cols-md-3 row-cols-lg-5 align-items-center price mb-3">
                 <div class="col">
-                    <input type="number" id="price" placeholder="Product Price" class="form-control">
+                    <input onkeyup="getTotal()" type="number" id="price" placeholder="Product Price"
+                        class="form-control">
                 </div>
 
                 <div class="col">
-                    <input type="number" id="taxes" placeholder="Product Tax" class="form-control">
+                    <input onkeyup="getTotal()" type="number" id="taxes" placeholder="Product Tax" class="form-control">
                 </div>
 
                 <div class="col">
-                    <input type="number" id="ads" placeholder="Product Ads" class="form-control">
+                    <input onkeyup="getTotal()" type="number" id="ads" placeholder="Product Ads" class="form-control">
                 </div>
 
                 <div class="col">
-                    <input type="number" id="discount" placeholder="Product Discount" class="form-control">
+                    <input onkeyup="getTotal()" type="number" id="discount" placeholder="Product Discount"
+                        class="form-control">
                 </div>
 
                 <div class="col">
-                    <span class="form-control border-danger">Total : <span id="total">45454</span></span>
+                    <span class="form-control border-danger">Total : <span id="total"></span></span>
                 </div>
             </div>
 

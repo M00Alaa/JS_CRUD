@@ -9,6 +9,8 @@ let count = document.getElementById('count');
 let category = document.getElementById('category');
 let submit = document.getElementById('submit');
 
+let searchInp = document.getElementById('searchInp');
+
 let mood = 'create'
 let tmp;
 
@@ -80,7 +82,8 @@ function clearData() {
     total.innerHTML = '';
     count.value = '';
     category.value = '';
-    console.log(dataProduct);
+
+    searchInp.value = '';
 }
 
 showData();
@@ -90,18 +93,25 @@ function showData() {
     for (let i = 0; i < products.length; i++) {
         table += `<tr>
                         <td class="text-center">${i + 1}</td>
-                        <td class="text-center">${products[i].title}</td>
-                        <td class="text-center">${products[i].price}</td>
-                        <td class="text-center">${products[i].taxes}</td>
-                        <td class="text-center">${products[i].ads}</td>
-                        <td class="text-center">${products[i].discount}</td>
-                        <td class="text-center">${products[i].category}</td>
+                        <td class="text-center">${products[i].title || '-'}</td>
+                        <td class="text-center">${products[i].price || '-'}</td>
+                        <td class="text-center">${products[i].taxes || '-'}</td>
+                        <td class="text-center">${products[i].ads || '-'}</td>
+                        <td class="text-center">${products[i].discount || '-'}</td>
+                        <td class="text-center">${products[i].category || '-'}</td>
                         <td class="text-center"><button onclick="updateData(${i})" class="btn btn-success" style="width: 90px;">Update</button>
                         </td>
                         <td class="text-center"><button onclick="deleteData(${i})" class="btn btn-danger" style="width: 90px;">Delete</button></td>
                     </tr>`;
     }
     document.getElementById('tbody').innerHTML = table;
+
+    if (table == '') {
+        table = `<tr>
+                    <td class="text-center" colspan="9">No Data Found</td>
+                </tr>`;
+        document.getElementById('tbody').innerHTML = table;
+    }
 }
 
 // delete
@@ -139,8 +149,38 @@ function updateData(i) {
     });
 }
 
-// clean data
 // search
+function search(value) {
+    let table = '';
+    for (let i = 0; i < products.length; i++) {
+        if (products[i].title.toLowerCase().includes(value.toLowerCase()) || products[i].category.toLowerCase().includes(value.toLowerCase())) {
+            table += `<tr>
+                    <td class="text-center">${i + 1}</td>
+                    <td class="text-center">${products[i].title || '-'}</td>
+                    <td class="text-center">${products[i].price || '-'}</td>
+                    <td class="text-center">${products[i].taxes || '-'}</td>
+                    <td class="text-center">${products[i].ads || '-'}</td>
+                    <td class="text-center">${products[i].discount || '-'}</td>
+                    <td class="text-center">${products[i].category || '-'}</td>
+                    <td class="text-center"><button onclick="updateData(${i})" class="btn btn-success" style="width: 90px;">Update</button>
+                    </td>
+                    <td class="text-center"><button onclick="deleteData(${i})" class="btn btn-danger" style="width: 90px;">Delete</button></td>
+                </tr>`;
+        }
+    }
+
+    document.getElementById('tbody').innerHTML = table;
+
+    if (table == '') {
+        table = `<tr>
+                    <td class="text-center" colspan="9">No Data Found</td>
+                </tr>`;
+        document.getElementById('tbody').innerHTML = table;
+    }
+}
+
+clearData();
+// clean data
 // filter
 // sort
 

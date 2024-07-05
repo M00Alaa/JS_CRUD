@@ -59,21 +59,10 @@
         <hr class="my-4 text-white">
 
         <div class="outputs">
-            <div class="row row-cols-1 row-cols-md-2">
+            <div class="row row-cols-1">
                 <div class="col">
-                    <input type="text" id="search" class="form-control" placeholder="Type to search ...">
-                </div>
-
-                <div class="col">
-                    <div class="d-flex align-items-center">
-                        <div class="col-6 pe-2">
-                            <button id="titleSearch" class="btn btn-danger w-100">Search by title</button>
-                        </div>
-
-                        <div class="col-6 ps-2">
-                            <button id="categorySearch" class="btn btn-danger w-100">Search by category</button>
-                        </div>
-                    </div>
+                    <input onkeyup="search(this.value)" type="text" id="searchInp" class="form-control"
+                        placeholder="Type to search ...">
                 </div>
             </div>
 

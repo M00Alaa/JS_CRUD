@@ -46,7 +46,7 @@ submit.onclick = function () {
         category: category.value
     }
 
-    if (title.value != '' && price.value != '') {
+    if (title.value != '' && price.value != '' && category.value != '' && newProduct.count <= 100) {
         if (mood == 'create') {
             // count
             if (newProduct.count > 1) {
@@ -67,6 +67,9 @@ submit.onclick = function () {
             submit.innerHTML = 'Create';
             count.style.display = 'block';
         }
+    }
+    else {
+        alert('Please check your data');
     }
     clearData();
     showData();
@@ -180,7 +183,3 @@ function search(value) {
 }
 
 clearData();
-// clean data
-// filter
-// sort
-
